@@ -1,0 +1,207 @@
+/* 全局重置 + 基础样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei", "Arial", sans-serif;
+}
+
+body {
+  line-height: 1.8;
+  color: #333;
+  background-color: #fdf9ff; /* 浅紫粉色背景，贴合女性向风格 */
+  scroll-behavior: smooth; /* 平滑滚动 */
+}
+
+/* 导航栏：清新紫色系 */
+.nav {
+  background-color: #7b42bc; /* 主紫色 */
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(123, 66, 188, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.6rem;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo::before {
+  content: "💎"; /* 宝石图标替代LOGO占位 */
+  font-size: 1.8rem;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px; /* 圆角按钮感 */
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+/* 导航高亮+hover效果 */
+.nav-link.active {
+  background-color: #fff;
+  color: #7b42bc;
+  font-weight: bold;
+}
+
+.nav-link:hover:not(.active) {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* 页面主体：卡片式布局 */
+.container {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+  min-height: calc(100vh - 220px);
+}
+
+.page-title {
+  color: #7b42bc; /* 主色标题 */
+  margin-bottom: 2rem;
+  border-bottom: 3px solid #f0d9ff; /* 浅紫下划线 */
+  padding-bottom: 0.8rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* 内容卡片：增强精致感 */
+.content-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 15px rgba(123, 66, 188, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.content-card:hover {
+  box-shadow: 0 8px 25px rgba(123, 66, 188, 0.12);
+}
+
+/* 图片样式：圆角+阴影 */
+.content-img {
+  width: 100%;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 强调文本：紫色高亮 */
+.highlight {
+  color: #7b42bc;
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+
+/* 列表样式：自定义项目符号 */
+.custom-list {
+  list-style: none;
+  margin-left: 1rem;
+}
+
+.custom-list li {
+  margin: 1rem 0;
+  position: relative;
+  padding-left: 1.8rem;
+}
+
+.custom-list li::before {
+  content: "✨"; /* 星星图标替代项目符号 */
+  position: absolute;
+  left: 0;
+  color: #7b42bc;
+}
+
+/* 页脚：深色对比 */
+.footer {
+  background-color: #5a3093; /* 深紫色 */
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+/* 回到顶部按钮 */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 45px;
+  height: 45px;
+  background-color: #7b42bc;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(123, 66, 188, 0.3);
+  transition: all 0.3s ease;
+  opacity: 0; /* 默认隐藏 */
+  pointer-events: none; /* 隐藏时不可点击 */
+}
+
+.back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background-color: #5a3093;
+  transform: translateY(-3px);
+}
+
+/* 响应式：手机端适配 */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-list {
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .content-card {
+    padding: 1.5rem;
+  }
+
+  .back-to-top {
+    width: 40px;
+    height: 40px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
